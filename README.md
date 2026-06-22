@@ -1,82 +1,142 @@
-# Banking System
+# Core Banking Database
 
 ## Overview
 
-This project focuses on designing and implementing a relational banking database using SQL and MySQL. The system models core banking operations such as customer management, account management, transactions, loans, and branch operations. The project demonstrates database design principles, data modeling, and SQL-based business analysis using a realistic banking dataset.
+The Core Banking Database project focuses on designing and implementing a relational database system for banking operations using MySQL and SQL. The project models key banking entities such as customers, accounts, transactions, loans, and branches while demonstrating database design, normalization, data modeling, and analytical querying.
 
-## Objectives
+The objective is to create a scalable and structured database that supports banking operations and enables business reporting through SQL-based analysis.
 
-* Design a normalized banking database schema
+---
+
+## Project Objectives
+
+* Design a normalized relational database for banking operations
+* Model customer, account, transaction, loan, and branch data
 * Implement primary and foreign key relationships
 * Create an Entity Relationship Diagram (ERD)
-* Load and manage banking data
-* Perform analytical and operational SQL queries
-* Generate business insights from banking transactions and customer data
+* Develop analytical SQL queries for business reporting
+* Demonstrate advanced SQL concepts and database design principles
 
-## Technologies Used
+---
 
-* MySQL
-* MySQL Workbench
-* SQL
-* Git & GitHub
+## Database Schema
 
-## Database Components
+The database consists of the following core entities:
 
 ### Customers
 
-Stores customer information and profile details.
+Stores customer information and demographic details.
 
 ### Accounts
 
-Maintains account information including account type and balances.
+Maintains customer account information including account types and balances.
 
 ### Transactions
 
-Records deposits, withdrawals, and transfers.
+Captures deposits, withdrawals, transfers, and transaction history.
 
 ### Loans
 
-Tracks customer loan details and repayment information.
+Tracks loan information, loan amounts, and repayment details.
 
 ### Branches
 
-Stores branch-level information and operational data.
+Stores branch-related information and operational details.
 
-## Key SQL Concepts Demonstrated
+---
 
-* Database Design
+## Key Features
+
+* Relational Database Design
 * Data Modeling
-* Normalization
-* Primary & Foreign Keys
+* Schema Normalization
+* Primary and Foreign Key Constraints
+* Entity Relationship Modeling
+* Business-Oriented SQL Analysis
+* Banking Operations Reporting
+
+---
+
+## SQL Concepts Demonstrated
+
+### Database Design
+
+* Table Creation
+* Constraints
+* Data Integrity Rules
+* Relationship Management
+
+### Querying & Analysis
+
 * Joins
 * Aggregate Functions
 * Subqueries
 * Common Table Expressions (CTEs)
 * Window Functions
 * Views
+* Grouping and Filtering
 
-## Project Structure
-
-```text
-banking-system/
-│
-├── datasets/
-├── database_schema/
-├── erd/
-├── sql_queries/
-├── analysis/
-└── README.md
-```
+---
 
 ## Sample Business Questions
 
 * Which customers maintain the highest account balances?
-* Which branches handle the highest transaction volume?
+* Which branches process the highest transaction volumes?
 * What are the most common account types?
 * Which customers have active loans?
 * What is the monthly transaction trend?
 * Which branches generate the highest business activity?
 
+---
+
+## Project Structure
+
+```text
+core-banking-database/
+│
+├── dataset/
+│   └── banking_data.csv
+│
+├── database_schema/
+│   ├── create_tables.sql
+│   ├── constraints.sql
+│   └── relationships.sql
+│
+├── sql_queries/
+│   ├── basic_queries.sql
+│   ├── analytical_queries.sql
+│   ├── cte_queries.sql
+│   └── window_functions.sql
+│
+├── erd/
+│   └── banking_erd.png
+│
+└── README.md
+```
+
+---
+
+## Technologies Used
+
+* MySQL
+* SQL
+* MySQL Workbench
+* Git & GitHub
+
+---
+
+## Skills Demonstrated
+
+* Relational Database Design
+* Data Modeling
+* Database Normalization
+* SQL Development
+* Query Optimization
+* Business Data Analysis
+* Entity Relationship Modeling
+
+---
+
 ## Learning Outcomes
 
-This project demonstrates practical skills in relational database design, SQL development, data modeling, and business-oriented data analysis within the banking domain.
+This project demonstrates practical experience in designing relational databases, implementing normalized schemas, managing data relationships, and solving business problems using SQL. It showcases foundational database engineering skills applicable to banking and financial systems.
