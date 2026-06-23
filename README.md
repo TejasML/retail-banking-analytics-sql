@@ -140,3 +140,6 @@ core-banking-database/
 ## Learning Outcomes
 
 This project demonstrates practical experience in designing relational databases, implementing normalized schemas, managing data relationships, and solving business problems using SQL. It showcases foundational database engineering skills applicable to banking and financial systems.
+
+
+## How to connect 
