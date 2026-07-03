@@ -35,3 +35,16 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+
+SELECT balance FROM Account WHERE account_id = 'ACC00001';
+-- the current balance
+
+INSERT INTO Transaction (transaction_id, account_id, transaction_type, amount, payment_mode, transaction_date, remarks)
+VALUES ('TXNTEST02', 'ACC00001', 'Deposit', 1000, 'Cash', NOW(), 'Test deposit 2');
+
+SELECT balance FROM Account WHERE account_id = 'ACC00001';
+
+
+DELETE FROM Transaction WHERE transaction_id IN ('TXNTEST02');
+DELETE FROM TransactionLog WHERE transaction_id IN ('TXNTEST02');

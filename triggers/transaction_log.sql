@@ -32,3 +32,6 @@ INSERT INTO Transaction (transaction_id, account_id, transaction_type, amount, p
 VALUES ('TXNTEST01', 'ACC00001', 'Deposit', 5000, 'Cash', NOW(), 'Test deposit');
 
 SELECT * FROM TransactionLog WHERE transaction_id = 'TXNTEST01'; 
+
+DELETE FROM Transaction WHERE transaction_id IN ('TXNTEST01');
+DELETE FROM TransactionLog WHERE transaction_id IN ('TXNTEST01');
