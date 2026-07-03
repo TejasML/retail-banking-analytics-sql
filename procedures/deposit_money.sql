@@ -5,7 +5,7 @@
 
 
 DELIMITER $$
-
+ 
 CREATE PROCEDURE deposit_money (
     IN p_account_id VARCHAR(10),
     IN p_amount DECIMAL(15,2),
@@ -15,12 +15,12 @@ CREATE PROCEDURE deposit_money (
 BEGIN
     DECLARE v_status VARCHAR(20);
     DECLARE v_new_txn_id VARCHAR(10);
-
+ 
     -- Validate account exists and is not closed
     SELECT status INTO v_status
     FROM Account
     WHERE account_id = p_account_id;
-
+ 
     IF v_status IS NULL THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Deposit failed: account does not exist.';
@@ -31,17 +31,26 @@ BEGIN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Deposit failed: amount must be positive.';
     ELSE
-        -- Generate next transaction_id
+        -- Generate next transaction_id (only considers properly formatted TXN###### IDs)
         SELECT CONCAT('TXN', LPAD(
-            (SELECT IFNULL(MAX(CAST(SUBSTRING(transaction_id, 4) AS UNSIGNED)), 0) + 1 FROM Transaction),
+            (SELECT IFNULL(MAX(CAST(SUBSTRING(transaction_id, 4) AS UNSIGNED)), 0) + 1
+             FROM Transaction
+             WHERE transaction_id REGEXP '^TXN[0-9]+$'),
             6, '0'))
         INTO v_new_txn_id;
-
+ 
         INSERT INTO Transaction (transaction_id, account_id, transaction_type, amount, payment_mode, transaction_date, remarks)
         VALUES (v_new_txn_id, p_account_id, 'Deposit', p_amount, p_payment_mode, NOW(), p_remarks);
-
+ 
         SELECT CONCAT('Deposit successful. Transaction ID: ', v_new_txn_id) AS result;
     END IF;
 END$$
-
+ 
 DELIMITER ;
+
+SELECT balance FROM Account WHERE account_id = 'ACC00001';
+
+CALL deposit_money('ACC00001', 2000, 'UPI', 'Test procedure deposit');
+
+SELECT balance FROM Account WHERE account_id = 'ACC00001';
+SELECT * FROM Transaction WHERE account_id = 'ACC00001' ORDER BY transaction_date DESC LIMIT 1;
