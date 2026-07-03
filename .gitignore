@@ -1,0 +1,18 @@
+# Ignore generated CSV datasets
+Python Script and Dataset/*.csv
+
+# Keep the generator script
+!Python Script and Dataset/generate_dataset.py
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environments
+venv/
+.venv/
+env/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
