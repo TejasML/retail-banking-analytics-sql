@@ -170,6 +170,18 @@ A few things I'd add with more time:
 
 ---
 
+## Screenshots
+
+Five images in the `screenshots/` folder, each showing a different part of the system actually running:
+
+- **branch_performance.png** — the branch performance report, ranking branches by deposits and loan volume.
+- **customer_lifetime_value.png** — the CLV report, showing balance and transaction activity per customer.
+- **loan_default_risk.png** — default rate per branch, sorted highest to lowest.
+- **transfer_validation.png** — `transfer_money` rejecting a same-account transfer and an insufficient-balance transfer.
+- **apply_loan_success.png** — a new loan record created by `apply_loan`, with the auto-generated loan ID visible.
+ 
+--- 
+
 ## Diagrams
 
 The `diagrams/` folder has two views of the schema:
