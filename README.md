@@ -25,6 +25,8 @@ The banking domain made sense because it naturally forces you to think about dat
 
 ## Schema Overview
 
+The data itself is synthetic — generated with a Python script (generate_dataset.py) rather than pulled from a real bank, for obvious privacy reasons. The script respects every foreign key relationship, follows a banking working-day calendar (no Sundays, no 2nd/4th Saturdays), and deliberately injects edge cases — a handful of high-balance customers, a few loan defaulters, some dormant accounts — so the reports actually have something meaningful to surface instead of flat, uniform numbers.
+
 Six core tables, each with a clear, single responsibility:
 
 | Table | What it holds |
