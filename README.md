@@ -38,6 +38,8 @@ Six core tables, each with a clear, single responsibility:
 | `Loan` | Loan applications (Home, Car, Personal, Education, Business) |
 | `Transaction` | Every deposit, withdrawal, and transfer on an account |
 
+![ER Diagram](diagrams/ER_Diagram.png)
+
 A seventh table — `TransactionLog` — is populated automatically by a trigger. It's a separate audit trail that records what happened and when, independent of the operational Transaction table.
 
 The hierarchy flows naturally: Branch sits at the top, Employee and Customer belong to a Branch, Account and Loan belong to Customer and Branch, and Transaction belongs to Account.
